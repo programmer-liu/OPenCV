@@ -1,0 +1,21 @@
+#include<opencv2/opencv.hpp>
+using namespace cv;
+
+void example2_5(const cv::Mat & image) {
+	namedWindow("Example2_5-in", WINDOW_AUTOSIZE);
+	namedWindow("Example2_5-out", WINDOW_AUTOSIZE);
+	cv::imshow("Example2_5-in", image);
+	Mat out;
+
+	GaussianBlur(image, out, Size(5, 5), 3, 3);
+	GaussianBlur(out, out, Size(5, 5), 3, 3);
+	imshow("Example2_5-out", out);
+	waitKey(0);
+	
+
+
+}
+int main() {
+	Mat img=imread("1.jpg");
+	example2_5(img);
+}
